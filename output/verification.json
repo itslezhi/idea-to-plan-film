@@ -1,0 +1,28 @@
+{
+  "sample": "A Little Order",
+  "duration_seconds": 5.0,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 150,
+    "codec": "H.264",
+    "shutter_samples_per_frame": 4,
+    "decode_passed": true
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "peak_dbfs": -3.2,
+    "clipped_samples": 0,
+    "seed": 241107
+  },
+  "browser_checks": {
+    "page_errors": 0,
+    "console_errors": 0,
+    "framing_points_passed": 8,
+    "repeat_seek_identical": true
+  },
+  "visual_review": "Checked contact sheet and sampled frames decoded from the encoded MP4; final stamp is visible after the character moves aside.",
+  "platform": "macOS / Apple GPU; fonts and renderer may vary on other platforms."
+}

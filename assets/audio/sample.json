@@ -1,0 +1,189 @@
+{
+  "file": "assets/audio/sample.wav",
+  "duration_seconds": 5.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "frames": 240000,
+  "peak_dbfs": -3.2,
+  "rms_dbfs": -27.12,
+  "clipped_samples": 0,
+  "seed": 241107,
+  "bpm": 120,
+  "events": [
+    {
+      "t": 0.25,
+      "name": "muted kick",
+      "pan": 0
+    },
+    {
+      "t": 0.25,
+      "name": "felt mallet",
+      "pan": -0.28
+    },
+    {
+      "t": 0.25,
+      "name": "Pip landing",
+      "pan": -0.63
+    },
+    {
+      "t": 0.5,
+      "name": "soft shaker",
+      "pan": 0.25
+    },
+    {
+      "t": 0.75,
+      "name": "idea chip contact",
+      "pan": -0.35
+    },
+    {
+      "t": 0.764,
+      "name": "idea chip shimmer",
+      "pan": -0.35
+    },
+    {
+      "t": 1.0,
+      "name": "soft shaker",
+      "pan": -0.25
+    },
+    {
+      "t": 1.0,
+      "name": "felt mallet",
+      "pan": -0.12
+    },
+    {
+      "t": 1.25,
+      "name": "muted kick",
+      "pan": 0
+    },
+    {
+      "t": 1.25,
+      "name": "idea chip contact",
+      "pan": -0.08
+    },
+    {
+      "t": 1.264,
+      "name": "idea chip shimmer",
+      "pan": -0.08
+    },
+    {
+      "t": 1.5,
+      "name": "soft shaker",
+      "pan": 0.25
+    },
+    {
+      "t": 1.75,
+      "name": "felt mallet",
+      "pan": 0.12
+    },
+    {
+      "t": 1.75,
+      "name": "idea chip contact",
+      "pan": 0.18
+    },
+    {
+      "t": 1.764,
+      "name": "idea chip shimmer",
+      "pan": 0.18
+    },
+    {
+      "t": 1.92,
+      "name": "Inbox unfurl air",
+      "pan": 0.12
+    },
+    {
+      "t": 2.0,
+      "name": "Inbox hinge",
+      "pan": 0.12
+    },
+    {
+      "t": 2.25,
+      "name": "muted kick",
+      "pan": 0
+    },
+    {
+      "t": 2.5,
+      "name": "felt mallet",
+      "pan": 0.26
+    },
+    {
+      "t": 2.5,
+      "name": "card opens",
+      "pan": 0.2
+    },
+    {
+      "t": 2.75,
+      "name": "soft shaker",
+      "pan": -0.25
+    },
+    {
+      "t": 3.0,
+      "name": "plan row settles",
+      "pan": -0.12
+    },
+    {
+      "t": 3.0,
+      "name": "plan row tone",
+      "pan": -0.12
+    },
+    {
+      "t": 3.25,
+      "name": "muted kick",
+      "pan": 0
+    },
+    {
+      "t": 3.25,
+      "name": "plan row settles",
+      "pan": 0.05
+    },
+    {
+      "t": 3.25,
+      "name": "plan row tone",
+      "pan": 0.05
+    },
+    {
+      "t": 3.5,
+      "name": "felt mallet",
+      "pan": 0.12
+    },
+    {
+      "t": 3.5,
+      "name": "plan row settles",
+      "pan": 0.23
+    },
+    {
+      "t": 3.5,
+      "name": "plan row tone",
+      "pan": 0.23
+    },
+    {
+      "t": 3.75,
+      "name": "soft shaker",
+      "pan": 0.25
+    },
+    {
+      "t": 4.15,
+      "name": "stamp body",
+      "pan": 0.2
+    },
+    {
+      "t": 4.15,
+      "name": "final check stamp",
+      "pan": 0.2
+    },
+    {
+      "t": 4.17,
+      "name": "resolved check chord",
+      "pan": -0.12
+    },
+    {
+      "t": 4.2,
+      "name": "resolved check chord",
+      "pan": 0.12
+    },
+    {
+      "t": 4.23,
+      "name": "resolved check chord",
+      "pan": 0.3
+    }
+  ]
+}
