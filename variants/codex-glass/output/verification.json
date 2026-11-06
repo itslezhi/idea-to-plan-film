@@ -1,0 +1,15 @@
+{
+  "title": "Codex / Glass Desktop",
+  "duration_seconds": 5,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 150,
+  "shutter_samples": 4,
+  "decode_passed": true,
+  "page_errors": [],
+  "console_errors": [],
+  "framing_passed": 18,
+  "repeat_seek_identical": true,
+  "visual_review": "Native macOS icons, Codex-derived cloud silhouette, glass window and Dock, continuous camera; encoded-video contact sheet reviewed."
+}

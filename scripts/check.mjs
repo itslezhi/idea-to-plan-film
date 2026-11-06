@@ -6,9 +6,27 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createServer, PROJECT_ROOT, browserLaunchOptions } from './serve.mjs';
 
-const output = path.join(PROJECT_ROOT, 'output');
+let film = 'original';
+const args = process.argv.slice(2);
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === '--film') film = args[++i];
+  else if (args[i] === '--help') {
+    console.log('node scripts/check.mjs [--film original|codex-glass]');
+    process.exit(0);
+  } else throw new Error(`Unknown option ${args[i]}`);
+}
+if (!['original', 'codex-glass'].includes(film)) throw new Error('Unknown film variant; choose original or codex-glass');
+const variant = film === 'codex-glass';
+const pagePath = variant ? '/variants/codex-glass/' : '/';
+const filmRoot = variant ? path.join(PROJECT_ROOT, 'variants/codex-glass') : PROJECT_ROOT;
+const output = path.join(filmRoot, 'output');
+const reportPath = variant ? 'variants/codex-glass/output/check.json' : 'output/check.json';
+const framingTimes = variant
+  ? [0.25, 0.575, 0.8, 1.07, 1.25, 1.49, 1.65, 2.4, 2.65, 2.8, 2.95, 3.1, 3.25, 3.4, 3.55, 3.65, 4.05, 4.8]
+  : [0.25, 0.75, 1.25, 1.75, 2.5, 3.5, 4.15, 4.8];
 await mkdir(output, { recursive: true });
 const report = {
+  film,
   success: false,
   started: new Date().toISOString(),
   pageErrors: [],
@@ -35,7 +53,7 @@ try {
     if (request.resourceType() === 'media' && item.failure === 'net::ERR_ABORTED') report.mediaPreloadAborts.push(item);
     else report.failedRequests.push(item);
   });
-  await page.goto(`${server.origin}/?render=1`, { waitUntil: 'networkidle' });
+  await page.goto(`${server.origin}${pagePath}?render=1`, { waitUntil: 'networkidle' });
   await page.evaluate(async () => {
     await window.__ready;
     await document.fonts.ready;
@@ -58,7 +76,7 @@ try {
 
   // Projected actor-centre checks complement the human review of the contact sheet.
   // __inspect intentionally does not expose a full character silhouette.
-  for (const t of [0.25, 0.75, 1.25, 1.75, 2.5, 3.5, 4.15, 4.8]) {
+  for (const t of framingTimes) {
     if (t >= meta.dur) continue;
     const inspection = await seek(t);
     const xy = inspection?.pip?.screen;
@@ -104,6 +122,6 @@ try {
   if (server) await new Promise(resolve => server.close(resolve));
   report.finished = new Date().toISOString();
   await writeFile(path.join(output, 'check.json'), JSON.stringify(report, null, 2) + '\n');
-  console.log(JSON.stringify({ success: report.success, framingChecks: report.framing.length, determinism: report.determinism?.passed ?? false, report: 'output/check.json' }, null, 2));
+  console.log(JSON.stringify({ success: report.success, framingChecks: report.framing.length, determinism: report.determinism?.passed ?? false, report: reportPath }, null, 2));
   if (report.failure) console.error(report.failure);
 }

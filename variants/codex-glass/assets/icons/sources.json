@@ -1,0 +1,103 @@
+{
+  "finder": {
+    "source": "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+    "output": "finder.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "b0c14426bc1e128be6bfb6ebc49698c624715b200e90dd5e4ddd6c3e1c39ae35",
+    "bytes": 92692
+  },
+  "messages": {
+    "source": "/System/Applications/Messages.app/Contents/Resources/AppIcon.icns",
+    "output": "messages.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "6cc7b67125b0ec7c38041ad1e47ad58a4c9748a84262ed0980314723ca6dad75",
+    "bytes": 132184
+  },
+  "photos": {
+    "source": "/System/Applications/Photos.app/Contents/Resources/AppIcon.icns",
+    "output": "photos.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "32141b5c5367b2727c62017ea67d42ad0a5ce045d3913d3b66024ba146e89d73",
+    "bytes": 132083
+  },
+  "terminal": {
+    "source": "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns",
+    "output": "terminal.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "7b91ca85d9fdfc99a757bfaa2a48ee4ca80ca871e6b93eeaf5780ed0ece96bb7",
+    "bytes": 43538
+  },
+  "notes": {
+    "source": "/System/Applications/Notes.app/Contents/Resources/AppIcon.icns",
+    "output": "notes.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "9c661fcdee39b35f61c99fc0d9ea7147e198fb6d5d9618f7e062eeb792228e35",
+    "bytes": 43356
+  },
+  "safari": {
+    "source": "/Applications/Safari.app/Contents/Resources/AppIcon.icns",
+    "output": "safari.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "222525415cb75dd44756b89c4242b970d3631398b4c5dd56c588634b57cf4c5b",
+    "bytes": 133522
+  },
+  "music": {
+    "source": "/System/Applications/Music.app/Contents/Resources/AppIcon.icns",
+    "output": "music.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "99e81fcf715d7db96d50347ad5f993c0ef0b7ab5a40c56915374ab97dcdcf99e",
+    "bytes": 85662
+  },
+  "system-settings": {
+    "source": "/System/Applications/System Settings.app/Contents/Resources/SystemSettings.icns",
+    "output": "system-settings.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "329795ff32f95e6e77c2b78636d3b44d61f6802f21f64098272a6b435f443bde",
+    "bytes": 155314
+  },
+  "codex": {
+    "source": "/Applications/ChatGPT.app/Contents/Resources/app.icns",
+    "output": "codex.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "bundleId": "com.openai.codex",
+    "note": "Codex >_ cloud icon from installed OpenAI application resource. Registered electron.icns and icon-chatgpt.icns are ChatGPT knot; those are not used for Codex.",
+    "sha256": "16c7cb690509684dca0d8c733e1394806386deb37bb4038861318064b0c9ee69",
+    "bytes": 119786
+  }
+}

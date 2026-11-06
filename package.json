@@ -9,7 +9,10 @@
     "dev": "node scripts/serve.mjs",
     "stills": "node scripts/render.mjs --stills",
     "render": "node scripts/render.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "stills:codex": "node scripts/render.mjs --film codex-glass --stills",
+    "render:codex": "node scripts/render.mjs --film codex-glass",
+    "check:codex": "node scripts/check.mjs --film codex-glass"
   },
   "dependencies": {
     "three": "0.180.0"

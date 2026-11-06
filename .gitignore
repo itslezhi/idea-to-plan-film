@@ -11,3 +11,12 @@ assets/audio/sample.wav
 __pycache__/
 .venv/
 .cache/
+
+# Local captures for the revised sample
+variants/*/output/frames/
+variants/*/output/captures/
+variants/*/output/stills/
+variants/*/output/qa*.json
+variants/*/output/check.json
+variants/*/output/*-source.zip
+variants/*/assets/audio/*.wav

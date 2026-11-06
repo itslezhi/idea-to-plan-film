@@ -18,3 +18,10 @@ https://github.com/feitangyuan/onetake/tree/main/cases/clawd-desktop-19s
 The reference informed the high-level idea of a character causing interface reactions through its body. The reference film's actual HTML composition, Blender model and audio sources are not public. This project does not contain the reference video, Clawd model, Apple or Anthropic logos, the reference soundtrack, or onetake source code.
 
 The reconstructed reference prompt is an analytical reconstruction, **not** the creator's unpublished exact prompt. onetake has its own PolyForm Noncommercial license, independent of this repository's MIT-licensed original implementation. Installing or copying onetake is not required to run this project.
+
+
+## V2 · Codex Glass Desktop
+
+The revised macOS glass desktop scene is in `variants/codex-glass/`. Its choreography, camera, procedural wallpaper, glass setup, UI, and synthesized sound are independently authored. The Codex-themed animated character extrudes the blue-purple cloud outline and uses the white `>_` artwork from the installed Codex app icon. It is a project-specific animation, not an official mascot.
+
+The nine native Apple/OpenAI icon PNG files and Codex-derived outline are identified separately in `variants/codex-glass/docs/assets.md` and `assets/icons/sources.json`. Those third-party brand artworks and their derived outline are excluded from the project's MIT grant. The MIT license applies to our original code, animation and sound. The earlier independence paragraph above describes V1; V2 intentionally depicts native software icons following the user's revised direction.

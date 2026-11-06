@@ -1,0 +1,219 @@
+{
+  "file": "assets/audio/sample.wav",
+  "duration_seconds": 5.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "frames": 240000,
+  "peak_dbfs": -3.2,
+  "rms_dbfs": -27.18,
+  "clipped_samples": 0,
+  "seed": 261107,
+  "bpm": 126,
+  "events": [
+    {
+      "t": 0.25,
+      "name": "muted electronic pulse",
+      "pan": 0
+    },
+    {
+      "t": 0.25,
+      "name": "soft electronic mallet",
+      "pan": -0.18
+    },
+    {
+      "t": 0.25,
+      "name": "Codex icon landing",
+      "pan": -0.7
+    },
+    {
+      "t": 0.258,
+      "name": "Dock glass response",
+      "pan": -0.7
+    },
+    {
+      "t": 0.7261904761904762,
+      "name": "fine shaker",
+      "pan": -0.16
+    },
+    {
+      "t": 0.8,
+      "name": "Messages icon landing",
+      "pan": -0.35
+    },
+    {
+      "t": 0.808,
+      "name": "Dock glass response",
+      "pan": -0.35
+    },
+    {
+      "t": 1.2023809523809523,
+      "name": "muted electronic pulse",
+      "pan": 0
+    },
+    {
+      "t": 1.2023809523809523,
+      "name": "soft electronic mallet",
+      "pan": -0.06
+    },
+    {
+      "t": 1.25,
+      "name": "Photos icon landing",
+      "pan": 0.05
+    },
+    {
+      "t": 1.258,
+      "name": "Dock glass response",
+      "pan": 0.05
+    },
+    {
+      "t": 1.65,
+      "name": "Terminal icon landing",
+      "pan": 0.42
+    },
+    {
+      "t": 1.658,
+      "name": "Dock glass response",
+      "pan": 0.42
+    },
+    {
+      "t": 1.6785714285714284,
+      "name": "fine shaker",
+      "pan": -0.16
+    },
+    {
+      "t": 1.81,
+      "name": "Terminal rebound",
+      "pan": 0.42
+    },
+    {
+      "t": 1.98,
+      "name": "Terminal rebound",
+      "pan": 0.42
+    },
+    {
+      "t": 2.045,
+      "name": "terminal window lift",
+      "pan": 0.26
+    },
+    {
+      "t": 2.1547619047619047,
+      "name": "muted electronic pulse",
+      "pan": 0
+    },
+    {
+      "t": 2.1547619047619047,
+      "name": "soft electronic mallet",
+      "pan": 0.06
+    },
+    {
+      "t": 2.2,
+      "name": "glass window arrival body",
+      "pan": 0.22
+    },
+    {
+      "t": 2.2,
+      "name": "glass window chord",
+      "pan": -0.08
+    },
+    {
+      "t": 2.215,
+      "name": "glass window chord",
+      "pan": 0.17
+    },
+    {
+      "t": 2.23,
+      "name": "glass window chord",
+      "pan": 0.36
+    },
+    {
+      "t": 2.630952380952381,
+      "name": "fine shaker",
+      "pan": -0.16
+    },
+    {
+      "t": 2.8,
+      "name": "prompt hop key contact",
+      "pan": -0.3
+    },
+    {
+      "t": 2.808,
+      "name": "key glass detail",
+      "pan": -0.3
+    },
+    {
+      "t": 3.1,
+      "name": "prompt hop key contact",
+      "pan": -0.02
+    },
+    {
+      "t": 3.1071428571428568,
+      "name": "muted electronic pulse",
+      "pan": 0
+    },
+    {
+      "t": 3.1071428571428568,
+      "name": "soft electronic mallet",
+      "pan": 0.18
+    },
+    {
+      "t": 3.108,
+      "name": "key glass detail",
+      "pan": -0.02
+    },
+    {
+      "t": 3.4,
+      "name": "prompt hop key contact",
+      "pan": 0.27
+    },
+    {
+      "t": 3.408,
+      "name": "key glass detail",
+      "pan": 0.27
+    },
+    {
+      "t": 3.583333333333333,
+      "name": "muted electronic pulse",
+      "pan": 0
+    },
+    {
+      "t": 3.583333333333333,
+      "name": "fine shaker",
+      "pan": -0.16
+    },
+    {
+      "t": 3.65,
+      "name": "submit body",
+      "pan": 0.28
+    },
+    {
+      "t": 3.65,
+      "name": "submit stamp",
+      "pan": 0.28
+    },
+    {
+      "t": 3.89,
+      "name": "spinner breath",
+      "pan": 0.08
+    },
+    {
+      "t": 3.93,
+      "name": "reply begins",
+      "pan": 0.08
+    },
+    {
+      "t": 4.17,
+      "name": "Ready to build resolution",
+      "pan": -0.18
+    },
+    {
+      "t": 4.185,
+      "name": "Ready to build resolution",
+      "pan": 0.03
+    },
+    {
+      "t": 4.2,
+      "name": "Ready to build resolution",
+      "pan": 0.24
+    }
+  ]
+}

@@ -1,4 +1,25 @@
-# A Little Order · 把想法变成下一步
+# Codex Glass Desktop · macOS 玻璃桌面修订版
+
+新版 **5 秒样片** 按反馈改为 macOS 软件界面与玻璃效果：真实 Apple 应用图标、带放大波纹的玻璃 Dock、蓝紫色 Codex `>_` 云形角色、透射与折射窗口、红黄绿控制钮、近距离跟拍与景深。
+
+![Codex glass desktop preview](variants/codex-glass/output/preview.gif)
+
+**[观看新版高清有声样片](variants/codex-glass/output/codex-glass-5s.mp4)** · **[关键帧](variants/codex-glass/output/contact-sheet.jpg)** · **[新版提示词](variants/codex-glass/docs/prompt.md)** · **[新版分镜](variants/codex-glass/docs/storyboard.md)** · **[完整复现说明](variants/codex-glass/README.md)**
+
+```bash
+# 在下文依赖安装完成后执行
+npm run check:codex
+npm run stills:codex
+npm run render:codex
+```
+
+预览：运行 `npm run dev`，打开 `http://127.0.0.1:4173/variants/codex-glass/`。首次预览前执行 `python3 variants/codex-glass/scripts/audio.py` 生成声音。
+
+代码与声音为独立实现；Codex 角色以本机原生图标轮廓制作，是本项目的动画演绎。Apple/OpenAI 图标及派生轮廓仍归相应权利人，详见[素材说明](variants/codex-glass/docs/assets.md)。
+
+---
+
+## V1 存档：A Little Order · 把想法变成下一步
 
 一个原创 **5 秒、1920×1080、30fps** 的三维桌面动画样片。Pip 用身体触发界面：连跳三张便签，把三条想法送进 Inbox，展开一张计划卡，最后盖下完成印章。
 

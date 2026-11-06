@@ -8,10 +8,11 @@ import { spawn, spawnSync } from 'node:child_process';
 import { createServer, PROJECT_ROOT, pythonPath, browserLaunchOptions } from './serve.mjs';
 
 const args = process.argv.slice(2);
-const opts = { stills: false, samples: 4, workers: 4, width: 1920, height: 1080, fps: 30, keepCaptures: false };
+const opts = { film: 'original', stills: false, samples: 4, workers: 4, width: 1920, height: 1080, fps: 30, keepCaptures: false };
 for (let i = 0; i < args.length; i++) {
   const flag = args[i];
   if (flag === '--stills') opts.stills = true;
+  else if (flag === '--film') opts.film = args[++i];
   else if (flag === '--keep-captures') opts.keepCaptures = true;
   else if (['--samples', '--workers', '--width', '--height', '--fps'].includes(flag)) {
     const value = Number(args[++i]);
@@ -25,7 +26,12 @@ for (let i = 0; i < args.length; i++) {
 if (opts.samples > 32 || opts.workers > 12 || opts.fps > 120) throw new Error('Requested render settings exceed the safe local limits');
 if (opts.width % 2 || opts.height % 2) throw new Error('H.264 output width and height must be even');
 
-const output = path.join(PROJECT_ROOT, 'output');
+if (!['original', 'codex-glass'].includes(opts.film)) throw new Error('Unknown film variant');
+const variant = opts.film === 'codex-glass';
+const filmRoot = variant ? path.join(PROJECT_ROOT, 'variants/codex-glass') : PROJECT_ROOT;
+const pagePath = variant ? '/variants/codex-glass/' : '/';
+const audioScript = variant ? 'variants/codex-glass/scripts/audio.py' : 'scripts/audio.py';
+const output = path.join(filmRoot, 'output');
 await mkdir(output, { recursive: true });
 const qa = {
   mode: opts.stills ? 'stills' : 'video',
@@ -65,7 +71,7 @@ function ffmpegPath() {
 
 let server, browser;
 try {
-  if (!opts.stills) await run(python, ['scripts/audio.py']);
+  if (!opts.stills) await run(python, [audioScript]);
   server = await createServer({ port: 0 });
   const launch = browserLaunchOptions(chromium);
   browser = await chromium.launch(launch);
@@ -85,7 +91,7 @@ try {
       else qa.failedRequests.push(item);
     });
     page.setDefaultTimeout(60_000);
-    await page.goto(`${server.origin}/?render=1`, { waitUntil: 'networkidle' });
+    await page.goto(`${server.origin}${pagePath}?render=1`, { waitUntil: 'networkidle' });
     await page.evaluate(async () => {
       await window.__ready;
       if (typeof window.__seek !== 'function') throw new Error('Film must define window.__seek(t)');
@@ -115,7 +121,7 @@ try {
   if (opts.stills) {
     const destination = path.join(output, 'stills');
     await mkdir(destination, { recursive: true });
-    const times = [0.25, 0.75, 1.25, 1.75, 2.5, 3.5, 4.15, 4.8].filter(t => t < duration);
+    const times = (variant ? [0.25, 0.8, 1.25, 1.65, 2.4, 3.1, 3.65, 4.8] : [0.25, 0.75, 1.25, 1.75, 2.5, 3.5, 4.15, 4.8]).filter(t => t < duration);
     const stills = [];
     for (let i = 0; i < times.length; i++) {
       const t = times[i];
@@ -130,9 +136,9 @@ try {
     await writeFile(path.join(destination, 'manifest.json'), JSON.stringify({ duration, stills }, null, 2) + '\n');
     await run(python, [
       'scripts/composite.py', 'sheet', '--input-dir', destination,
-      '--output', path.join(output, 'contact-sheet.jpg'),
+      '--output', path.join(output, 'contact-sheet.jpg'), '--title', variant ? 'CODEX / GLASS DESKTOP / FIVE-SECOND STUDY' : 'IDEA TO PLAN / FIVE-SECOND STUDY',
     ]);
-    qa.outputs = ['output/contact-sheet.jpg', ...stills.map(s => `output/stills/${s.file}`)];
+    qa.outputs = [path.relative(PROJECT_ROOT,path.join(output,'contact-sheet.jpg')), ...stills.map(s => path.relative(PROJECT_ROOT,path.join(destination,s.file)))];
   } else {
     const ffmpeg = ffmpegPath();
     const captures = path.join(output, 'captures');
@@ -168,9 +174,9 @@ try {
       '--output-dir', frames, '--frames', String(count), '--samples', String(opts.samples),
       '--workers', '2',
     ]);
-    const audio = path.join(PROJECT_ROOT, 'assets/audio/sample.wav');
+    const audio = path.join(filmRoot, 'assets/audio/sample.wav');
     if (!existsSync(audio)) throw new Error('Missing assets/audio/sample.wav. Run python3 scripts/audio.py first.');
-    const target = path.join(output, 'idea-to-plan-5s.mp4');
+    const target = path.join(output, variant ? 'codex-glass-5s.mp4' : 'idea-to-plan-5s.mp4');
     await run(ffmpeg, [
       '-hide_banner', '-loglevel', 'error', '-y',
       '-framerate', String(opts.fps), '-start_number', '0', '-i', path.join(frames, '%05d.png'),
@@ -190,7 +196,7 @@ try {
       samplesPerFrame: opts.samples, captures: count * opts.samples,
       decodePassed: true, decodeProgress: decode.stdout.trim(),
     };
-    qa.outputs = ['output/idea-to-plan-5s.mp4'];
+    qa.outputs = [path.relative(PROJECT_ROOT,target)];
     if (!opts.keepCaptures) await rm(captures, { recursive: true, force: true });
     console.log(`Video ready: ${target}`);
   }

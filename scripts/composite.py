@@ -50,7 +50,7 @@ def font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     return ImageFont.load_default(size=size)
 
 
-def sheet(source: Path, output: Path) -> None:
+def sheet(source: Path, output: Path, title: str) -> None:
     manifest_file = source / 'manifest.json'
     manifest = json.loads(manifest_file.read_text()) if manifest_file.exists() else None
     items = manifest['stills'] if manifest else [{'file': p.name, 'time': None} for p in sorted(source.glob('*.png'))]
@@ -61,7 +61,7 @@ def sheet(source: Path, output: Path) -> None:
     width, height, gap, label, top = 480, 270, 16, 43, 70
     image = Image.new('RGB', (cols * width + (cols + 1) * gap, top + rows * (height + label + gap)), '#f4f2ec')
     draw = ImageDraw.Draw(image)
-    draw.text((gap, 16), 'IDEA TO PLAN  /  FIVE-SECOND STUDY', font=font(25), fill='#233a39')
+    draw.text((gap, 16), title, font=font(25), fill='#233a39')
     draw.text((gap, 47), 'Original character, scene, animation and synthesized sound. One continuous camera.', font=font(15), fill='#667571')
     for index, item in enumerate(items):
         x = gap + index % cols * (width + gap)
@@ -89,9 +89,10 @@ def main() -> None:
     contact = commands.add_parser('sheet')
     contact.add_argument('--input-dir', type=Path, required=True)
     contact.add_argument('--output', type=Path, required=True)
+    contact.add_argument('--title', default='IDEA TO PLAN / FIVE-SECOND STUDY')
     args = parser.parse_args()
     if args.command == 'sheet':
-        sheet(args.input_dir, args.output)
+        sheet(args.input_dir, args.output, args.title)
         return
     if args.frames < 1 or args.samples < 1:
         parser.error('--frames and --samples must be positive')
