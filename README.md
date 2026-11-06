@@ -44,6 +44,8 @@ npm run render   # 默认 150 帧、4 次快门采样、H.264/AAC
 
 成片位于 `output/idea-to-plan-5s.mp4`。`FFMPEG=/path/to/ffmpeg` 和 `CHROME_PATH=/path/to/chrome` 可覆盖自动探测。虚拟环境激活后运行命令即可使用正确的 Python 依赖。
 
+GitHub Actions 会在干净的 Linux 环境执行完整场景检查、关键帧和 3fps 单次采样的管线检查视频，文件名为 `ci-smoke-3fps.mp4`。这是用于快速验证导出流程的 CI 产物；仓库中的正式 5 秒样片保持 1080p30、每帧 4 次快门采样。本地 `npm run render` 默认输出正式规格。
+
 ## 这 5 秒里发生了什么
 
 | 时间 | 画面 |

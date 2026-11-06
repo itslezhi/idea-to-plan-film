@@ -44,19 +44,21 @@ jobs:
         run: |
           python scripts/audio.py
           npm run check
-      - name: Render video
-        run: npm run render -- --workers 2
+      - name: Smoke-test full-HD video pipeline (3fps, single sample)
+        run: |
+          npm run render -- --fps 3 --samples 1 --workers 2
+          mv output/idea-to-plan-5s.mp4 output/ci-smoke-3fps.mp4
       - name: Render storyboard stills
         run: npm run stills
       - name: Upload film and verification reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: idea-to-plan-film
+          name: idea-to-plan-film-ci-smoke
           if-no-files-found: error
           retention-days: 30
           path: |
-            output/idea-to-plan-5s.mp4
+            output/ci-smoke-3fps.mp4
             output/contact-sheet.jpg
             output/stills/*.png
             output/qa*.json
